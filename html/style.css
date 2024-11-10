@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+#notifications {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#notifications.top-center {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.notification {
+    position: relative;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif; 
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeInOut 4s forwards;
+}
+
+.notification.success {
+    border-color: #00ff85;
+    box-shadow: 0 0 10px #00ff85, 0 0 20px #00ff85;
+}
+
+.notification.error {
+    border-color: #ff4f4f;
+    box-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff4f4f;
+}
+
+.notification.warning {
+    border-color: #ffc107;
+    box-shadow: 0 0 10px #ffc107, 0 0 20px #ffc107;
+}
+
+.notification.info {
+    border-color: #00bfff;
+    box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+}
+
+.notification.default {
+    text-align: left;
+    border-color: #ffa3f4;
+    box-shadow: 0 0 10px #ffa3f4, 0 0 20px #ffa3f4;
+}
+
+/* Neonowe ikony */
+.notification .icon {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+.notification.success .icon { background-image: url('https://cdn-icons-png.flaticon.com/512/190/190411.png'); }
+.notification.error .icon { background-image: url('https://cdn-icons-png.flaticon.com/512/190/190406.png'); }
+.notification.warning .icon { background-image: url('https://cdn-icons-png.flaticon.com/512/190/190408.png'); }
+.notification.info .icon { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828769.png'); }
+.notification.default .icon { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828769.png'); }
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
